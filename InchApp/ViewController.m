@@ -7,14 +7,17 @@
 //
 
 #import "ViewController.h"
+#import "DevListViewController.h"
 
 @interface ViewController ()
+
+
 
 @end
 
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 
-@implementation ViewController
+@implementation ViewController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,7 +74,11 @@
 
 -(void)timerISR
 {
-    self.view.backgroundColor = [UIColor greenColor];
+    //切换到扫描设备界面(navigation controller root view)
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *view = [story instantiateViewControllerWithIdentifier:@"ucos"];
+    [self presentViewController:view animated:YES completion:nil];
+    
 }
 
 

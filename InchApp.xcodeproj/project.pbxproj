@@ -15,6 +15,8 @@
 		F0747BEF1EC9767B00352737 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0747BED1EC9767B00352737 /* LaunchScreen.storyboard */; };
 		F0747BFA1EC9767B00352737 /* InchAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0747BF91EC9767B00352737 /* InchAppTests.m */; };
 		F0747C051EC9767B00352737 /* InchAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0747C041EC9767B00352737 /* InchAppUITests.m */; };
+		F08A3CD21ECA95F6005284B7 /* DevListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3CD11ECA95F6005284B7 /* DevListViewController.m */; };
+		F08A3CD51ECACE73005284B7 /* BleUnconectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F08A3CD41ECACE73005284B7 /* BleUnconectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		F0747C001EC9767B00352737 /* InchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0747C041EC9767B00352737 /* InchAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InchAppUITests.m; sourceTree = "<group>"; };
 		F0747C061EC9767B00352737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F08A3CD01ECA95F6005284B7 /* DevListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevListViewController.h; sourceTree = "<group>"; };
+		F08A3CD11ECA95F6005284B7 /* DevListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevListViewController.m; sourceTree = "<group>"; };
+		F08A3CD31ECACE73005284B7 /* BleUnconectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BleUnconectViewController.h; sourceTree = "<group>"; };
+		F08A3CD41ECACE73005284B7 /* BleUnconectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BleUnconectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				F0747BE31EC9767B00352737 /* AppDelegate.m */,
 				F0747BE51EC9767B00352737 /* ViewController.h */,
 				F0747BE61EC9767B00352737 /* ViewController.m */,
+				F08A3CD31ECACE73005284B7 /* BleUnconectViewController.h */,
+				F08A3CD41ECACE73005284B7 /* BleUnconectViewController.m */,
+				F08A3CD01ECA95F6005284B7 /* DevListViewController.h */,
+				F08A3CD11ECA95F6005284B7 /* DevListViewController.m */,
 				F0747BE81EC9767B00352737 /* Main.storyboard */,
 				F0747BEB1EC9767B00352737 /* Assets.xcassets */,
 				F0747BED1EC9767B00352737 /* LaunchScreen.storyboard */,
@@ -273,8 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08A3CD21ECA95F6005284B7 /* DevListViewController.m in Sources */,
 				F0747BE71EC9767B00352737 /* ViewController.m in Sources */,
 				F0747BE41EC9767B00352737 /* AppDelegate.m in Sources */,
+				F08A3CD51ECACE73005284B7 /* BleUnconectViewController.m in Sources */,
 				F0747BE11EC9767B00352737 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +521,7 @@
 				F0747C0B1EC9767B00352737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0747C0C1EC9767B00352737 /* Build configuration list for PBXNativeTarget "InchAppTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +530,7 @@
 				F0747C0E1EC9767B00352737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0747C0F1EC9767B00352737 /* Build configuration list for PBXNativeTarget "InchAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +539,7 @@
 				F0747C111EC9767B00352737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
