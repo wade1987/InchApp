@@ -12,10 +12,10 @@
 @interface ViewController ()
 
 
-
 @end
 
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+
 
 @implementation ViewController 
 
@@ -72,6 +72,8 @@
     
 }
 
+
+
 -(void)timerISR
 {
     //切换到扫描设备界面(navigation controller root view)
@@ -80,6 +82,9 @@
     [self presentViewController:view animated:YES completion:nil];
     
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

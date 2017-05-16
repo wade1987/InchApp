@@ -217,6 +217,7 @@
 				TargetAttributes = {
 					F0747BDB1EC9767A00352737 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = CPLDU9MXMR;
 						ProvisioningStyle = Automatic;
 					};
 					F0747BF41EC9767B00352737 = {
@@ -438,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CPLDU9MXMR;
 				INFOPLIST_FILE = InchApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Inch.InchApp;
@@ -449,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CPLDU9MXMR;
 				INFOPLIST_FILE = InchApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Inch.InchApp;
