@@ -11,17 +11,32 @@
 #import "ViewController.h"
 #import "BleUnconectViewController.h"
 
+
 @interface DevListViewController ()
+//系统蓝牙设备管理对象，可以把他理解为主设备，通过他，可以去扫描和链接外设
+@property (nonatomic,strong) CBCentralManager *manager;
+//用于保存被发现设备
+@property (nonatomic,strong) NSMutableArray *peripherals;
 @end
 
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 
 static UIViewController *con;
+static UITableView *tableView;
+
 
 @implementation DevListViewController
 
+- (void)dealloc
+{
+    _peripherals = nil;
+   
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _peripherals = [[NSMutableArray alloc] init];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"选择设备";
@@ -37,11 +52,17 @@ static UIViewController *con;
      - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error;//断开外设的委托
      */
     //初始化并设置委托和线程队列，最好一个线程的参数可以为nil，默认会就main线程
-    manager = [[CBCentralManager alloc]initWithDelegate:self queue:dispatch_get_main_queue()];
+    _manager = [[CBCentralManager alloc]initWithDelegate:self queue:dispatch_get_main_queue()];
 
     
     
     con = [[BleUnconectViewController alloc]init];
+    
+    //创建一个表格视图
+    tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
     
     
     // Do any additional setup after loading the view.
@@ -52,6 +73,41 @@ static UIViewController *con;
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _peripherals.count;
+    //return 8;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+//设置每行的UITableViewCell
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+    }
+    //cell.textLabel.text = [NSString stringWithFormat:@"第%ld分区 第%ld行",indexPath.section,indexPath.row];
+    CBPeripheral *perip = [_peripherals objectAtIndex:indexPath.row];
+    //CBPeripheral *perip = [peripherals objectAtIndex:0];
+    cell.textLabel.text = perip.name;
+    cell.textLabel.font = [UIFont systemFontOfSize:30];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central{
     
@@ -82,7 +138,7 @@ static UIViewController *con;
              第一个参数nil就是扫描周围所有的外设，扫描到外设后会进入
              - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI;
              */
-            [manager scanForPeripheralsWithServices:nil options:nil];
+            [_manager scanForPeripheralsWithServices:nil options:nil];
             
             break;
         default:
@@ -93,11 +149,71 @@ static UIViewController *con;
 
 //扫描到设备会进入方法
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI{
+    BOOL isExist = NO;
+    CBPeripheral *perip;
     
-    NSLog(@"当扫描到设备:%@",peripheral.name);
+    if ([peripheral.name hasPrefix:@"Inch Sizer"])
+    {
+        /*[peripherals addObject:peripheral];
+        //[tableView reloadData];
+        //[self getData:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{[tableView reloadData];});*/
+        
+        NSLog(@"当扫描到设备:%@",peripheral.name);
+        
+        
+        
+        
+        
+        
+        
+        
+        if (_peripherals.count == 0)
+        {
+            [_peripherals addObject:peripheral];
+            //一个section刷新
+            NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:0];
+            [tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+            //一个cell刷新
+            NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        else
+        {
+            for (int i = 0;i < _peripherals.count;i++)
+            {
+                perip = [_peripherals objectAtIndex:i];
+                
+                if ([peripheral.identifier.UUIDString isEqualToString:perip.identifier.UUIDString])
+                {
+                    isExist = YES;
+                    [_peripherals replaceObjectAtIndex:i withObject:perip];
+                    //[tableView reloadData];
+                }
+            }
+            if (!isExist)
+            {
+                
+                [_peripherals addObject:perip];
+                
+                
+                //一个section刷新
+                NSIndexSet *indexSet=[[NSIndexSet alloc]initWithIndex:0];
+                [tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                //一个cell刷新
+                NSIndexPath *indexPath=[NSIndexPath indexPathForRow:(_peripherals.count - 1) inSection:0];
+                [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }
+        
+        
+    }
+    
     //接下来可以连接设备
     
 }
+
+
 
 
 /*
