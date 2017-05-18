@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface DevListViewController : UIViewController <CBCentralManagerDelegate,CBPeripheralDelegate,UITableViewDelegate,UITableViewDataSource>
-
+@interface DevListViewController : UIViewController 
 
 @end
 
