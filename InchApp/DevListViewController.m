@@ -30,6 +30,7 @@
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 
 static UIViewController *con;
+static DevListViewController *con1;
 //static UITableView *tableView;
 static long int CurrentRSSI;
 int bleIsDisconnectFlag=0;
@@ -52,6 +53,8 @@ int bleIsDisconnectFlag=0;
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"选择设备";
     
+    [self startScanPeripherals];
+    
     /*
      设置主设备的委托,CBCentralManagerDelegate
      必须实现的：
@@ -69,6 +72,7 @@ int bleIsDisconnectFlag=0;
     
     
     con = [[BleUnconectViewController alloc]init];
+    //con1 = [[DevListViewController alloc]init];
     
     
     if(!_tableView)
@@ -114,11 +118,11 @@ int bleIsDisconnectFlag=0;
         [_manager setDelegate:self];
     }
 }
-/*//启动一个1s定时器
+//启动一个2s定时器
 - (void)startScanPeripherals
 {
     if (!_scanTimer) {
-        _scanTimer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(scanForPeripherals) userInfo:nil repeats:YES];
+        _scanTimer = [NSTimer timerWithTimeInterval:5.0 target:self selector:@selector(scanForPeripherals) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:_scanTimer forMode:NSDefaultRunLoopMode];
     }
     if (_scanTimer && !_scanTimer.valid) {
@@ -136,18 +140,31 @@ int bleIsDisconnectFlag=0;
     [_manager stopScan];
 }
 
-//每1秒扫描1次
+//每5秒扫描1次
 - (void)scanForPeripherals
 {
     if (_manager.state == CBManagerStateUnsupported) {//设备不支持蓝牙
         
     }else {//设备支持蓝牙连接
         if (_manager.state == CBManagerStatePoweredOn) {//蓝牙开启状态
-            //[_centralManager stopScan];
-            [_manager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:[NSNumber numberWithBool:NO]}];
+            if (_peripherals.count == 0)
+            {
+                //弹出提示打开inch sizer电源提示的alert
+               UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"无设备可连" message:@"请打开Inch Sizer电源开关" preferredStyle:UIAlertControllerStyleActionSheet];
+                
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的！" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0]
+                                                          animated:YES];
+                }];
+               // UIAlertAction *action = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDestructive handler:nil];
+                
+                [actionSheet addAction:action];
+                [self presentViewController:actionSheet animated:YES completion:nil];
+               // [self stopScan];
+            }
         }
     }
-}*/
+}
 
 //设置扫描到的蓝牙设备列表每行的UITableViewCell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -318,6 +335,7 @@ int bleIsDisconnectFlag=0;
    // [self presentViewController:viewController animated:YES completion:nil];
     NSLog(@"Connect success");
     bleIsDisconnectFlag = 0;
+    [self stopScan];
     
 
 }

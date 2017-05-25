@@ -36,7 +36,7 @@
 #define COLOR1 UIColor yellowColor
 #define COLOR2 UIColor greenColor
 #define COLOR3 UIColor grayColor
-#define LEFT_DISTNCE 35
+#define LEFT_DISTNCE 25
 
 static UIViewController *con;
 
@@ -57,21 +57,21 @@ extern int bleIsDisconnectFlag;
     
     _node0Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*2/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node0Lbl.textAlignment = NSTextAlignmentLeft;
-    _node0Lbl.text = @"node0(胸围):---mm";
+    _node0Lbl.text = @"n0(胸围):-- mm";
     _node0Lbl.textColor = [UIColor blackColor];
     _node0Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node0Lbl.backgroundColor = [COLOR1];
     
     _node1Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*3/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node1Lbl.textAlignment = NSTextAlignmentLeft;
-    _node1Lbl.text = @"node1(肩宽):---mm";
+    _node1Lbl.text = @"n1(肩宽):-- mm";
     _node1Lbl.textColor = [UIColor blackColor];
     _node1Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node1Lbl.backgroundColor = [COLOR2];
     
     _node2Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*4/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node2Lbl.textAlignment = NSTextAlignmentLeft;
-    _node2Lbl.text = @"node2(上身长):---mm";
+    _node2Lbl.text = @"n2(上身长):-- mm";
     _node2Lbl.textColor = [UIColor blackColor];
     _node2Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node2Lbl.backgroundColor = [COLOR3];
@@ -79,21 +79,21 @@ extern int bleIsDisconnectFlag;
 
     _node3Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*5/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node3Lbl.textAlignment = NSTextAlignmentLeft;
-    _node3Lbl.text = @"node3(腹围):---mm";
+    _node3Lbl.text = @"n3(腹围):-- mm";
     _node3Lbl.textColor = [UIColor blackColor];
     _node3Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node3Lbl.backgroundColor = [COLOR1];
     
     _node4Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*6/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node4Lbl.textAlignment = NSTextAlignmentLeft;
-    _node4Lbl.text = @"node4(上臂长):---mm";
+    _node4Lbl.text = @"n4(上臂长):-- mm";
     _node4Lbl.textColor = [UIColor blackColor];
     _node4Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node4Lbl.backgroundColor = [COLOR2];
     
     _node5Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*7/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node5Lbl.textAlignment = NSTextAlignmentLeft;
-    _node5Lbl.text = @"node5(档深):---mm";
+    _node5Lbl.text = @"n5(档深):-- mm";
     _node5Lbl.textColor = [UIColor blackColor];
     _node5Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node5Lbl.backgroundColor = [COLOR3];
@@ -101,28 +101,28 @@ extern int bleIsDisconnectFlag;
     
     _node6Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*8/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node6Lbl.textAlignment = NSTextAlignmentLeft;
-    _node6Lbl.text = @"node6(腰围):---mm";
+    _node6Lbl.text = @"n6(腰围):-- mm";
     _node6Lbl.textColor = [UIColor blackColor];
     _node6Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node6Lbl.backgroundColor = [COLOR1];
     
     _node7Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*9/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node7Lbl.textAlignment = NSTextAlignmentLeft;
-    _node7Lbl.text = @"node7(臀围):---mm";
+    _node7Lbl.text = @"n7(臀围):-- mm";
     _node7Lbl.textColor = [UIColor blackColor];
     _node7Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node7Lbl.backgroundColor = [COLOR2];
     
     _node8Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*10/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node8Lbl.textAlignment = NSTextAlignmentLeft;
-    _node8Lbl.text = @"node8(大腿围):---mm";
+    _node8Lbl.text = @"n8(大腿围):-- mm";
     _node8Lbl.textColor = [UIColor blackColor];
     _node8Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node8Lbl.backgroundColor = [COLOR3];
     
     _node9Lbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE, SCN_SIZE.height*11/12-10, SCN_SIZE.width/2, SCN_SIZE.height/12)];
     _node9Lbl.textAlignment = NSTextAlignmentLeft;
-    _node9Lbl.text = @"node9(腿长):---mm";
+    _node9Lbl.text = @"n9(腿长):-- mm";
     _node9Lbl.textColor = [UIColor blackColor];
     _node9Lbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _node9Lbl.backgroundColor = [COLOR1];
@@ -130,7 +130,7 @@ extern int bleIsDisconnectFlag;
     //电池信息
     _battyLbl = [[UILabel alloc]initWithFrame:CGRectMake(LEFT_DISTNCE+SCN_SIZE.width/2+10, SCN_SIZE.height*5/12-10, SCN_SIZE.width/3, SCN_SIZE.height/12)];
     _battyLbl.textAlignment = NSTextAlignmentCenter;
-    _battyLbl.text = @"当前电量:--%";
+    _battyLbl.text = @"当前电量:-- %";
     _battyLbl.textColor = [UIColor blackColor];
     _battyLbl.font = [UIFont fontWithName:@"Arial" size:LBL_FONT_SIZE];
     _battyLbl.backgroundColor = [UIColor redColor];
@@ -259,80 +259,80 @@ extern int bleIsDisconnectFlag;
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node0Lbl.text = [NSString stringWithFormat:@"node0(胸围):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node0Lbl.text = [NSString stringWithFormat:@"n0(胸围):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE1"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node1Lbl.text = [NSString stringWithFormat:@"node1(肩宽):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node1Lbl.text = [NSString stringWithFormat:@"n1(肩宽):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE2"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node2Lbl.text = [NSString stringWithFormat:@"node2(上身长):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node2Lbl.text = [NSString stringWithFormat:@"n2(上身长):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE3"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node3Lbl.text = [NSString stringWithFormat:@"node3(腹围):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node3Lbl.text = [NSString stringWithFormat:@"n3(腹围):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE4"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node4Lbl.text = [NSString stringWithFormat:@"node4(上臂长):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node4Lbl.text = [NSString stringWithFormat:@"n4(上臂长):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE5"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node5Lbl.text = [NSString stringWithFormat:@"node5(档深):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node5Lbl.text = [NSString stringWithFormat:@"n5(档深):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE6"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node6Lbl.text = [NSString stringWithFormat:@"node6(腰围):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node6Lbl.text = [NSString stringWithFormat:@"n6(腰围):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE7"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node7Lbl.text = [NSString stringWithFormat:@"node7(臀围):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node7Lbl.text = [NSString stringWithFormat:@"n7(臀围):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE8"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node8Lbl.text = [NSString stringWithFormat:@"node8(大腿围):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node8Lbl.text = [NSString stringWithFormat:@"n8(大腿围):%ldmm",len];
         
     }
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"FFE9"]])
     {
         NSData * data = characteristic.value;
         Byte * resultByte = (Byte *)[data bytes];
-        long int len = resultByte[1]*256 + resultByte[0];
-        _node9Lbl.text = [NSString stringWithFormat:@"node9(腿长):%ldmm",len];
+        long int len = resultByte[0]*256 + resultByte[1];
+        _node9Lbl.text = [NSString stringWithFormat:@"n9(腿长):%ldmm",len];
         
     }
     
